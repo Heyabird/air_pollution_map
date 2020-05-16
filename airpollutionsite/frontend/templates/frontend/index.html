@@ -1,13 +1,33 @@
+{% load static %}
+
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Django REST with React</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'frontend/style.css' %}">
+  <!-- the GL JS files -->
+  <script src='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css' rel='stylesheet' />
+  
+  <title>Air Pollution Map</title>
 </head>
 <body>
 <div id="app">
     <!-- React will load here -->
+    <div id='map' style='width: 400px; height: 300px;'></div>
+    <script>
+	  mapboxgl.accessToken = 'pk.eyJ1IjoiaGV5YWJpcmQiLCJhIjoiY2s5ZWl0c3M0MDJzdDNnbzE2dXB5bDRhdSJ9.bNbukgXKDz5ZbTc9gQ4-bQ';
+    var map = new mapboxgl.Map({
+    container: 'map', // container id
+    style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
+    center: [-74.5, 40], // starting position [lng, lat]
+    zoom: 9 // starting zoom
+    });
+    </script>
 </div>
 </body>
 {% load static %}

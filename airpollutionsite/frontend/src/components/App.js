@@ -33,9 +33,10 @@ class App extends Component {
 
   render() {
     return (
-      <ul>
-            <h2>Testing React!</h2>
-      </ul>
+      <div>
+        <h2>Testing React! ⚛︎ Boom!</h2>
+        <div id='map'></div>
+      </div>
     );
   }
 }
