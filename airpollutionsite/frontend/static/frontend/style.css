@@ -1,3 +1,5 @@
-body {
+html, body, #map {
+    height: 100%;
     color: red;
+    background-color: black;
 }

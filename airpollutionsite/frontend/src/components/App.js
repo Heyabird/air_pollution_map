@@ -34,8 +34,8 @@ class App extends Component {
   render() {
     return (
       <div>
-        <h2>Testing React! ⚛︎ Boom!</h2>
-        <div id='map'></div>
+        <h2>Map! ⚛︎ Boom!!!</h2>
+        {/* <div id='map'></div> */}
       </div>
     );
   }
@@ -43,5 +43,5 @@ class App extends Component {
 
 export default App;
 
-const container = document.getElementById("app");
-render(<App />, container);
+// const container = document.getElementById("app");
+// render(<App />, container);
