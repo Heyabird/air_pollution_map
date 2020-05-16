@@ -44,7 +44,7 @@ class App extends React.Component {
               },
               'properties': {
                 'title': 'SD',
-                'icon': 'harbor',
+                'icon': 'harbor ',
                 'description':
                   '<p>San Diego</p>'
               }
