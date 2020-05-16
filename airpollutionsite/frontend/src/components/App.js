@@ -1,47 +1,43 @@
-import React, { Component } from "react";
+import React from "react";
 import { render } from "react-dom";
+import ReactDOM from 'react-dom';
+import mapboxgl from 'mapbox-gl';
 
-class App extends Component {
+mapboxgl.accessToken = 'pk.eyJ1IjoiaGV5YWJpcmQiLCJhIjoiY2s5ZWl0c3M0MDJzdDNnbzE2dXB5bDRhdSJ9.bNbukgXKDz5ZbTc9gQ4-bQ'
+
+class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: [],
-      loaded: false,
-      placeholder: "Loading"
+    lng: 5,
+    lat: 34,
+    zoom: 2
     };
-  }
+    }
 
-//   componentDidMount() {
-//     fetch("api/lead")
-//       .then(response => {
-//         if (response.status > 400) {
-//           return this.setState(() => {
-//             return { placeholder: "Something went wrong!" };
-//           });
-//         }
-//         return response.json();
-//       })
-//       .then(data => {
-//         this.setState(() => {
-//           return {
-//             data,
-//             loaded: true
-//           };
-//         });
-//       });
-//   }
+  componentDidMount() {
+    const map = new mapboxgl.Map({
+    container: this.mapContainer,
+    style: 'mapbox://styles/mapbox/streets-v11',
+    center: [this.state.lng, this.state.lat],
+    zoom: this.state.zoom
+    });
+    }    
 
   render() {
+    // mapboxgl.accessToken = 'MAPBOX_ACCESS_TOKEN';
     return (
-      <div>
+      <>
         <h2>Map! ⚛︎ Boom!!!</h2>
-        {/* <div id='map'></div> */}
-      </div>
+        <br/>
+        {/* mapContainer ref specifies that map should be drawn to the HtML page in a new <div> element */}
+        <div ref={el => this.mapContainer = el} className="mapContainer" /> 
+      </>
     );
   }
 }
 
 export default App;
 
-// const container = document.getElementById("app");
-// render(<App />, container);
+const container = document.getElementById("app");
+render(<App />, container);

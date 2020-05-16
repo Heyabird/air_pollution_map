@@ -3,34 +3,32 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <title>Air Pollution Map!!!</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1"> 
   <link rel="stylesheet" type="text/css" href="{% static 'frontend/style.css' %}">
   <!-- the GL JS files -->
-  <script src='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js'></script>
+  <!-- do i need this script? -->
+  <script src='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js'></script> 
   <link href='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css' rel='stylesheet' />
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.10.0/mapbox-gl.css' rel='stylesheet' />
   <!-- <link href='frontend/site.css' rel='stylesheet'/> -->
   <link rel="stylesheet" type="text/css" href="{% static 'frontend/site.css' %}">
-
-  
-  
-<title>Air Pollution Map!</title>
 </head>
 <body>
 <div id="app">
   <!-- React will load here -->
-  <div id='map' style='width: 1200px; height: 900px;'></div>
+  <!-- <div id='map' style='width: 1200px; height: 900px;'></div> -->
   <!-- <div id='map' style='width: 400px; height: 300px;'></div> -->
-
-  <script>
+</div>
+</body>
+<!-- <script>
   mapboxgl.accessToken = 'pk.eyJ1IjoiaGV5YWJpcmQiLCJhIjoiY2s5ZWl0c3M0MDJzdDNnbzE2dXB5bDRhdSJ9.bNbukgXKDz5ZbTc9gQ4-bQ';
   var map = new mapboxgl.Map({
   container: 'map',
   style: 'mapbox://styles/mapbox/streets-v11'
   });
-  </script>
-</div>
-</body>
-{% load static %}
+</script> -->
 <script src="{% static "frontend/main.js" %}"></script>
+
 </html>
