@@ -8,7 +8,6 @@ import AverageTable from './averageTable'
 mapboxgl.accessToken = 'pk.eyJ1IjoiaGV5YWJpcmQiLCJhIjoiY2s5ZWl0c3M0MDJzdDNnbzE2dXB5bDRhdSJ9.bNbukgXKDz5ZbTc9gQ4-bQ';
 
 
-
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -17,23 +16,17 @@ class App extends React.Component {
     lat: 34,
     zoom: 2
     };
-    // this.initialMapSetUp = this.initialMapSetUp.bind(this);
+    this.mapSetUp = this.mapSetUp.bind(this);
     }
-
   
-
-  componentDidMount() {
+  mapSetUp(){
     const map = new mapboxgl.Map({
-    container: this.mapContainer,
-    style: 'mapbox://styles/mapbox/streets-v11',
-    center: [this.state.lng, this.state.lat],
-    zoom: this.state.zoom
-    });
-    var marker = new mapboxgl.Marker()
-    .setLngLat([-117.228993, 32.866037])
-    // .setPopup(popup)
-    .addTo(map)
-
+      container: this.mapContainer,
+      style: 'mapbox://styles/mapbox/streets-v11',
+      center: [this.state.lng, this.state.lat],
+      zoom: this.state.zoom
+      });
+      
     map.on('load', () => {
       console.log("loading")
       map.addSource('points', {
@@ -42,7 +35,6 @@ class App extends React.Component {
           'type': 'FeatureCollection',
           'features': [
             {
-            // feature for mock Hotel Heya
               'type': 'Feature',
               'geometry': {
               'type': 'Point',
@@ -58,7 +50,6 @@ class App extends React.Component {
               }
             },
             {
-            // feature for mock Hotel Bay
               'type': 'Feature',
               'geometry': {
                 'type': 'Point',
@@ -92,27 +83,43 @@ class App extends React.Component {
           }
       });
 
-      map.on('click', 'points', (e) => {
+      var popup = new mapboxgl.Popup({
+        closeButton: false,
+        closeOnClick: false
+        });
+
+      map.on('mouseenter', 'points', (e) => {
         var coordinates = e.features[0].geometry.coordinates.slice();
         var description = e.features[0].properties.description;
+
+        map.getCanvas().style.cursor = 'pointer';
+ 
+        var coordinates = e.features[0].geometry.coordinates.slice();
+        var description = e.features[0].properties.description;
+
+        // Ensure that if the map is zoomed out such that multiple
+        // copies of the feature are visible, the popup appears
+        // over the copy being pointed to.
+        while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+        coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+        }
       
-        new mapboxgl.Popup()
+        popup
           .setLngLat(coordinates)
           .setHTML(description)
           .addTo(map)
           .setMaxWidth("400px")
       });
 
-    // create the popup
-    // var popup = new mapboxgl.Popup({ offset: 25 }).setText(
-      // 'Construction on the Washington Monument began in 1848.'
-      // );
-    // // create DOM element for the marker
-    var el = document.createElement('div');
-    el.id = 'marker';
-    // this.initialMapSetUp;
-    })  
-
+      map.on('mouseleave', 'points', function() {
+        map.getCanvas().style.cursor = '';
+        popup.remove();
+        });
+    }) 
+  }
+  
+  componentDidMount() {
+    this.mapSetUp(); 
   }
 
   render() {   
