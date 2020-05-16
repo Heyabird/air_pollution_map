@@ -22,7 +22,7 @@ class App extends React.Component {
   mapSetUp(){
     const map = new mapboxgl.Map({
       container: this.mapContainer,
-      style: 'mapbox://styles/mapbox/streets-v11',
+      style: 'mapbox://styles/heyabird/ckaa8st6z07nr1ilousemiggu',
       center: [this.state.lng, this.state.lat],
       zoom: this.state.zoom
       });
@@ -44,7 +44,7 @@ class App extends React.Component {
               },
               'properties': {
                 'title': 'SD',
-                'icon': 'music',
+                'icon': 'harbor',
                 'description':
                   '<p>San Diego</p>'
               }
@@ -60,6 +60,19 @@ class App extends React.Component {
                 'icon': 'harbor',
                 'description':
                   '<p>San Francisco.</p>'
+              }
+            },
+            {
+              'type': 'Feature',
+              'geometry': {
+                'type': 'Point',
+                'coordinates': [-118.2437, 34.0522]
+                },
+              'properties': {
+                'title': 'LA',
+                'icon': 'harbor',
+                'description':
+                  '<p>Los Angeles</p>'
               }
             }
           ]
