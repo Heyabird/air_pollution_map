@@ -21,4 +21,5 @@ urlpatterns = [
     path('airpollutionapp/', include('airpollutionapp.urls')),
     # password for admin is 'djangoisfun1'
     path('admin/', admin.site.urls),
+    path('', include('frontend.urls')),
 ]
