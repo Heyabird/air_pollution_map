@@ -16,6 +16,7 @@ For you to use this project, you might have to run:
 * python manage.py migrate (apply migration/changes to the db)
 * npm install (make sure you have npm first)
 * source venv/bin/activate (to get into the virtual environment; run this in the root folder)
+* npm run dev (to run webpack so the frontend will load)
 
 To implement the tests, you should run:
 * yarn test (runs Jest)
