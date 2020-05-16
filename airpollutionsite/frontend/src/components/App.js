@@ -2,8 +2,10 @@ import React from "react";
 import { render } from "react-dom";
 import ReactDOM from 'react-dom';
 import mapboxgl from 'mapbox-gl';
+import TimeSeriesChart from './timeSeriesChart';
+import AverageTable from './averageTable'
 
-mapboxgl.accessToken = 'pk.eyJ1IjoiaGV5YWJpcmQiLCJhIjoiY2s5ZWl0c3M0MDJzdDNnbzE2dXB5bDRhdSJ9.bNbukgXKDz5ZbTc9gQ4-bQ'
+mapboxgl.accessToken = 'pk.eyJ1IjoiaGV5YWJpcmQiLCJhIjoiY2s5ZWl0c3M0MDJzdDNnbzE2dXB5bDRhdSJ9.bNbukgXKDz5ZbTc9gQ4-bQ';
 
 class App extends React.Component {
   constructor(props) {
@@ -28,10 +30,15 @@ class App extends React.Component {
     // mapboxgl.accessToken = 'MAPBOX_ACCESS_TOKEN';
     return (
       <>
-        <h2>Map! ⚛︎ Boom!!!</h2>
+        <div id="pagetitle">
+          <h2>Air Pollution Today</h2>
+        </div>
         <br/>
         {/* mapContainer ref specifies that map should be drawn to the HtML page in a new <div> element */}
         <div ref={el => this.mapContainer = el} className="mapContainer" /> 
+        <br/>
+        <TimeSeriesChart/>
+        <AverageTable/>
       </>
     );
   }
@@ -39,5 +46,6 @@ class App extends React.Component {
 
 export default App;
 
+// This has to stay in the bottom
 const container = document.getElementById("app");
 render(<App />, container);

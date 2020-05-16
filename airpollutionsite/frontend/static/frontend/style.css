@@ -1,5 +1,37 @@
-html, body, #map {
-    height: 100%;
-    color: red;
-    background-color: black;
+body {
+	padding: 30px;
+	margin: auto;
+	text-align: center;
+  font-family: "roboto light";
+}
+
+#pagetitle {
+  margin: auto;
+  text-align: center;
+}
+
+/*** MAP ***/
+
+.mapContainer {
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+}
+
+.mapboxgl-canvas{
+	height: 400px;
+}
+
+/*** TOOLS ***/
+
+#box {
+	border: 1px solid black;
+	/* width: 50%; */
+	/* height: 50%; */
+	min-width: 500px;
+	min-height: 300px;
+	margin: 20px;
+	display: inline-block;
 }
