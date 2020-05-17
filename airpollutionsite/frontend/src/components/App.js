@@ -162,9 +162,9 @@ class App extends React.Component {
         <br/>
         <TimeSeriesChart/>
         <AverageTable/>
-        <Button onClick={this.test}>Test Button!</Button>
-        <Button variant="contained" color="primary"/>
-      </>
+        <Button onClick={this.test}>Test Button</Button>
+        <Button variant="contained" color="primary">Primary</Button>      
+        </>
     );
   }
 }
