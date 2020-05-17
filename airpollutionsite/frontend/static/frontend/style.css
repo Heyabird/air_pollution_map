@@ -2,7 +2,7 @@ body {
 	padding: 30px;
 	margin: auto;
 	text-align: center;
-  font-family: "roboto light";
+  	font-family: "roboto light";
 }
 
 #pagetitle {
@@ -17,11 +17,12 @@ body {
 	top: 0;
 	right: 0;
 	left: 0;
-	bottom: 0;
+  bottom: 0;
+  height: 250px;
 }
 
 .mapboxgl-canvas{
-	height: 400px;
+	/* height: 100px; */
 }
 /*** MARKER/POPUP ***/
 #marker {
@@ -36,6 +37,17 @@ body {
 .mapboxgl-popup {
 	max-width: 200px;
 	}
+
+
+/*** CHART ***/
+#chart {
+	width: 300px;
+	padding: 200px;
+}
+
+#graphs {
+	display: inline-block;
+}
 
 /*** TOOLS ***/
 
