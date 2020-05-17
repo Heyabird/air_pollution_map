@@ -14,9 +14,9 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-    lng: -117,
-    lat: 32,
-    zoom: 2,
+    lng: -0,
+    lat: 35,
+    zoom: 1.5,
 
     };
     // this.mapSetUp = this.mapSetUp.bind(this);
