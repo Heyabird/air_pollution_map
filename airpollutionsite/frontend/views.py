@@ -4,6 +4,8 @@ from django.shortcuts import render
 def index(request):
     return render(request, 'frontend/index.html')
 
+
+
 # def default_map(request):
 #     # TODO: move this token to Django settings from an environment variable
 #     # found in the Mapbox account settings and getting started instructions
