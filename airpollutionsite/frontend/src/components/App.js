@@ -83,14 +83,15 @@ class App extends React.Component {
     return (
       <>
         <div id="pagetitle">
-          <h2>Air Pollution Today</h2>
+          <h2>Seeing the Pollution: Air Pollution Levels in Major Cities</h2>
+          <h4>City Selected: <strong>{this.state.city}</strong></h4>
         </div>
         <br/>
         {/* mapContainer ref specifies that map should be drawn to the HtML page in a new <div> element */}
         <div ref={el => this.mapContainer = el} className="mapContainer" /> 
         <br/>
         <div id="graphs">
-          <TimeSeriesChart/>
+          <TimeSeriesChart city={this.state.city}/>
           <AverageTable/>
         </div>
         <Button variant="contained" color="primary" onClick={this.test}>Test Button</Button>   

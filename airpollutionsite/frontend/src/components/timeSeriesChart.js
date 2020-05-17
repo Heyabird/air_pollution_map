@@ -2,7 +2,27 @@ import React from "react";
 
 class TimeSeriesChart extends React.Component {
 	// const myChartRef = this.chartRef.current.getContext("2d");
-	
+  constructor (props){
+    super(props);
+  
+
+  this.state = {
+     city: ""
+   }
+  this.cityNameOnly = this.cityNameOnly.bind(this);
+  }
+
+  cityNameOnly(city) {
+    let arr = this.props.city.split(", ");
+    this.setState({city: arr[0]})
+    console.log(arr)
+    console.log(this.state.city)
+  }
+
+  componentDidUpdate() {
+    // this.cityNameOnly(this.props.city);
+  }
+
 	componentDidMount() {
     const ctx = document.getElementById('chart').getContext('2d');
     const xLabels = [2018, 2019, 2020];
@@ -44,9 +64,13 @@ class TimeSeriesChart extends React.Component {
     });
   }
 
+
 	render() {
+    console.log(this.state.city)
+
     return (
 			<>
+        <h4>PM2.5 levels in {this.props.city}</h4>
         <canvas id="chart" max-width="50px" max-height="50px"></canvas>
 			</>		
 	)
