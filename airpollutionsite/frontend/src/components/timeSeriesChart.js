@@ -47,9 +47,7 @@ class TimeSeriesChart extends React.Component {
 	render() {
     return (
 			<>
-				<div id="box">Time Series Chart</div>
         <canvas id="chart" width="400" height="400"></canvas>
-
 			</>		
 	)
 	}
