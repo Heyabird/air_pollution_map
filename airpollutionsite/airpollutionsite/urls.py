@@ -16,10 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include
+from airpollutionapp import views
+from django.conf import settings
+
 
 urlpatterns = [
+    path('', include('frontend.urls')),
     path('testing/', include('airpollutionapp.urls')),
+    path('retrieveData/', include('airpollutionapp.urls')),
     # password for admin is 'djangoisfun1'
     path('admin/', admin.site.urls),
-    path('', include('frontend.urls')),
 ]

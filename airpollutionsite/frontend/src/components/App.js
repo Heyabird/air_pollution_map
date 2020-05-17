@@ -7,6 +7,7 @@ import AverageTable from './averageTable'
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiaGV5YWJpcmQiLCJhIjoiY2s5ZWl0c3M0MDJzdDNnbzE2dXB5bDRhdSJ9.bNbukgXKDz5ZbTc9gQ4-bQ';
 
+const axios = require('axios');
 
 class App extends React.Component {
   constructor(props) {
@@ -18,6 +19,7 @@ class App extends React.Component {
 
     };
     this.mapSetUp = this.mapSetUp.bind(this);
+    this.test = this.test.bind(this);
     }
   
   mapSetUp(){
@@ -131,6 +133,17 @@ class App extends React.Component {
     //     });
     // }) 
   }
+
+  test() {
+    var uri = 'http://localhost:8000/retrieveData'
+    axios.get(uri)
+    .then(response => {
+      console.log("retreiving data: ", response.data)
+    })
+    .catch(function(err){
+      console.log(err)
+    })
+  }
   
   componentDidMount() {
     this.mapSetUp(); 
@@ -148,6 +161,7 @@ class App extends React.Component {
         <br/>
         <TimeSeriesChart/>
         <AverageTable/>
+        <button onClick={this.test}>Test Button</button>
       </>
     );
   }
