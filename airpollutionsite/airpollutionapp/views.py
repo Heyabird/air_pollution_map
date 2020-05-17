@@ -23,5 +23,6 @@ def receive_data(req):
     response = requests.get(url)
     # print(response.text)
     data = pd.read_csv(response.text)
+    data.drop(data.columns[[1,2,3,5,6]], axis=1)
     # print(data)
     return HttpResponse(str(data))
