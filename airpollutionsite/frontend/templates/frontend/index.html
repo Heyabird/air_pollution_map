@@ -24,13 +24,14 @@
 
 <body>
   <!-- Add canvas element -->
-  <canvas id="chart" width="400" height="400"></canvas>
-  <script>  
-    var ctx = document.getElementById('chart').getContext('2d');
-    var myChart = new Chart(ctx, {
+  <!-- <canvas id="chart" width="400" height="400"></canvas> -->
+  <!-- <script>  
+    const ctx = document.getElementById('chart').getContext('2d');
+    const xLabels = [2018, 2019, 2020];
+    const myChart = new Chart(ctx, {
         type: 'line',
         data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            labels: xLabels,
             datasets: [{
                 label: 'pm2.5',
                 data: [12, 19, 3, 5, 2, 3],
@@ -63,7 +64,7 @@
             }
         }
     });
-    </script>
+    </script> -->
 
   <div id="app">
     <!-- React will load here -->
