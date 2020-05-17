@@ -3,7 +3,8 @@ import { render } from "react-dom";
 import ReactDOM from 'react-dom';
 import mapboxgl from 'mapbox-gl';
 import TimeSeriesChart from './timeSeriesChart';
-import AverageTable from './averageTable'
+import AverageTable from './averageTable';
+import Button from '@material-ui/core/Button';
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiaGV5YWJpcmQiLCJhIjoiY2s5ZWl0c3M0MDJzdDNnbzE2dXB5bDRhdSJ9.bNbukgXKDz5ZbTc9gQ4-bQ';
 
@@ -161,7 +162,8 @@ class App extends React.Component {
         <br/>
         <TimeSeriesChart/>
         <AverageTable/>
-        <button onClick={this.test}>Test Button</button>
+        <Button onClick={this.test}>Test Button!</Button>
+        <Button variant="contained" color="primary"/>
       </>
     );
   }
