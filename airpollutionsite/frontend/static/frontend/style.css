@@ -1,5 +1,5 @@
 body {
-	padding: 30px;
+	padding: 30px 100px 30px 100px;
 	margin: auto;
 	text-align: center;
   	font-family: "roboto light";
@@ -40,13 +40,19 @@ body {
 
 
 /*** CHART ***/
+/* element.style {
+  display: inline-block;
+  width: 300px;
+} */
+
 #chart {
 	width: 300px;
-	padding: 200px;
+	display: inline-block;
 }
 
 #graphs {
-	display: inline-block;
+  display: inline-block;
+  /* padding: 400px; */
 }
 
 /*** TOOLS ***/

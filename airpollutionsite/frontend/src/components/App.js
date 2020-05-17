@@ -17,10 +17,11 @@ class App extends React.Component {
     lng: -0,
     lat: 35,
     zoom: 1.5,
-
+    city: "",
     };
     // this.mapSetUp = this.mapSetUp.bind(this);
     this.test = this.test.bind(this);
+    this.updateChart = this.updateChart.bind(this);
     }
   
   // mapSetUp(){
@@ -44,8 +45,12 @@ class App extends React.Component {
       console.log(err)
     })
   }
+
+  updateChart() {
+    console.log("updating chart!");
+  }
   
-  
+  // Set map and pop up whenever the page loads
   componentDidMount() {
     const map = new mapboxgl.Map({
       container: this.mapContainer,
@@ -54,21 +59,23 @@ class App extends React.Component {
       zoom: this.state.zoom
       });
       
-    map.on('click', function(e) {
+    // activate pop up function
+    map.on('click', (e) => {
       var features = map.queryRenderedFeatures(e.point, {
         layers: ['8-cities']
       });
-    
       if (!features.length) {
         return;
       }
-    
       var feature = features[0];
-    
       var popup = new mapboxgl.Popup({ offset: [0, -15] })
         .setLngLat(feature.geometry.coordinates)
-        .setHTML('<h3>' + feature.properties.title + '</h3><p>' + feature.properties.description + '</p>')
+        .setHTML('<h3>' + feature.properties.place_name + '</h3>')
         .addTo(map);
+      this.updateChart();
+      this.setState({
+        city: feature.properties.place_name
+      });
     });
   }
 
@@ -86,9 +93,8 @@ class App extends React.Component {
           <TimeSeriesChart/>
           <AverageTable/>
         </div>
-        <Button onClick={this.test}>Test Button</Button>
-        <Button variant="contained" color="primary">Primary</Button>      
-        </>
+        <Button variant="contained" color="primary" onClick={this.test}>Test Button</Button>   
+      </>
     );
   }
 }
