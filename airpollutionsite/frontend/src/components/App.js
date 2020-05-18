@@ -18,11 +18,12 @@ class App extends React.Component {
         city: 'Los Angeles',
         chartData: [1,12,9,3,15,6,3,7,54,7,34,42,52,12,66,77,88,69,109],
         tableData: [
-          ['March', 30, 44, 50],
-          ['April', 10, 20, 30],
-          ['May', 33, 22, 33]
+          ['March', '❓', '❓', '❓'],
+          ['April', '❓', '❓', '❓'],
+          ['May', '❓', '❓', '❓']
         ],
       },
+      // externaldata takes in data from browser via axios call
       externaldata: "",
       // mockAveragePM: [
       //   ['March', 30, 40, 50],
@@ -52,6 +53,7 @@ class App extends React.Component {
   // testing if the frontend can receive air pollution data in the backend
   getCityData(city) {
     let cityName;
+    // need to refractor below code; shortening city names
     if(city === "Los Angeles, California, United States") {
       cityName = 'LA'
     } else if (city === "San Diego, California, United States") {
@@ -75,7 +77,9 @@ class App extends React.Component {
     axios.get(uri)
     .then(response => {
       console.log("retrieving data: ", response.data)
-      this.setState({externalData: response.data})
+      var x = object.keys(response.data)
+      var years = response.data.Year
+      this.setState({externalData: years})
     })
     .catch(function(err){
       console.log(err)
@@ -85,6 +89,7 @@ class App extends React.Component {
   updateCityData () {
     console.log("updating city data!");
     this.setState({
+      // start with dummy data...
       cityData: {
         city: this.state.city,
         chartData: [3,32,9,4,15,6,3,7,54,7,34,45,22,2,3,2,1,1,2],
@@ -153,7 +158,6 @@ class App extends React.Component {
             cityData={cityData}
             />
         </div>
-        {/* <Button variant="contained" color="primary" onClick={this.getCityData}>Test Button</Button>    */}
       </>
     );
   }

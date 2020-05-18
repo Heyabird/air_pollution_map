@@ -18,9 +18,7 @@ function createData(name, calories, fat, carbs) {
   return { name, calories, fat, carbs};
 }
 
-
-
-
+// filling in the table
 const averageTable = props => {
   const classes = useStyles();
   const averagePM = props.cityData.tableData;
@@ -41,6 +39,7 @@ console.log("cityData.tableData[0]", props.cityData.tableData[0]);
     <>
       <div id="table-container" style={{display:"inline-block", float:"right"}}
       >
+        {/* need to swtich out of Material UI -- their tables are extremely tricky to custom style.. */}
         <TableContainer width={1/4}
         >
           <Table className={classes.table} size="small" aria-label="a simple table">

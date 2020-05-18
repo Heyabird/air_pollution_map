@@ -6,7 +6,7 @@ from .models import Question
 import pandas as pd 
 import numpy as np 
 
-
+# Below is just a practice method; can delete later
 def index(request):
     latest_question_list = Question.objects.order_by('-pub_date')[:5]
     template = loader.get_template('airpollutionapp/index.html')
@@ -15,6 +15,7 @@ def index(request):
     }
     return HttpResponse(template.render(context, request))
 
+# Below is just a practice method; can delete later
 def detail(request, question_id):
     return HttpResponse("You're looking at question %s." % question_id)
 
@@ -38,8 +39,8 @@ def receive_data_la(req):
     data = pd.read_csv(url, header=9, sep='\t|,', engine='python')
     data['Year'] = data['% Year'].replace('%', ' ', regex=True)
     data = data.drop(data.columns[[1,2,3,5,6]], axis=1)
-    html = data.to_html()
-    return HttpResponse(html)
+    obj = data.to_json()
+    return HttpResponse(obj)
 
 def receive_data_sd(req):
     print(req)
@@ -47,7 +48,7 @@ def receive_data_sd(req):
     # save city name
     data = pd.read_csv(url, header=9, sep='\t|,')
     data = data.drop(data.columns[[1,2,3,5,6]], axis=1)
-    html = data.to_html()
+    obj = data.to_json()
 
     # For Average Table
     data2 = pd.read_csv("http://berkeleyearth.lbl.gov/air-quality/maps/cities/United_States_of_America/California/San_Diego.txt", 
@@ -67,7 +68,7 @@ def receive_data_sd(req):
     print (Year2020_April_AVG)
     print (Year2020_May_AVG)
 
-    return HttpResponse(Year2020_March_AVG, html)
+    return HttpResponse(Year2020_March_AVG, obj)
 
 def receive_data_ny(req):
     print(req)
@@ -75,8 +76,8 @@ def receive_data_ny(req):
     # save city name
     data = pd.read_csv(url, header=9, sep='\t|,')
     data = data.drop(data.columns[[1,2,3,5,6]], axis=1)
-    html = data.to_html()
-    return HttpResponse(html)
+    obj = data.to_json()
+    return HttpResponse(obj)
 
 def receive_data_sf(req):
     print(req)
@@ -85,8 +86,8 @@ def receive_data_sf(req):
     # save city name
     data = pd.read_csv(url, header=9, sep='\t|,')
     data = data.drop(data.columns[[1,2,3,5,6]], axis=1)
-    html = data.to_html()
-    return HttpResponse(html)
+    obj = data.to_json()
+    return HttpResponse(obj)
 
 def receive_data_nd(req):
     print(req)
@@ -95,8 +96,8 @@ def receive_data_nd(req):
     # save city name
     data = pd.read_csv(url, header=9, sep='\t|,')
     data = data.drop(data.columns[[1,2,3,5,6]], axis=1)
-    html = data.to_html()
-    return HttpResponse(html)
+    obj = data.to_json()
+    return HttpResponse(obj)
 
 def receive_data_bj(req):
     print(req)
@@ -105,8 +106,8 @@ def receive_data_bj(req):
     # save city name
     data = pd.read_csv(url, header=9, sep='\t|,')
     data = data.drop(data.columns[[1,2,3,5,6]], axis=1)
-    html = data.to_html()
-    return HttpResponse(html)
+    obj = data.to_json()
+    return HttpResponse(obj)
 
 def receive_data_ho(req):
     print(req)
@@ -115,8 +116,8 @@ def receive_data_ho(req):
     # save city name
     data = pd.read_csv(url, header=9, sep='\t|,')
     data = data.drop(data.columns[[1,2,3,5,6]], axis=1)
-    html = data.to_html()
-    return HttpResponse(html)
+    obj = data.to_json()
+    return HttpResponse(obj)
 
 def receive_data_ch(req):
     print(req)
@@ -125,5 +126,5 @@ def receive_data_ch(req):
     # save city name
     data = pd.read_csv(url, header=9, sep='\t|,')
     data = data.drop(data.columns[[1,2,3,5,6]], axis=1)
-    html = data.to_html()
-    return HttpResponse(html)
+    obj = data.to_json()
+    return HttpResponse(obj)

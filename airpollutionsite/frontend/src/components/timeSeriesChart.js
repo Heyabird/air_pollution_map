@@ -21,9 +21,6 @@ class TimeSeriesChart extends React.Component {
     console.log(this.state.city)
   }
 
-  // componentDidUpdate() {
-  //   // this.cityNameOnly(this.props.city);
-  // }
 
   makeChart(){
     const ctx = document.getElementById('chart').getContext('2d');
@@ -76,12 +73,14 @@ class TimeSeriesChart extends React.Component {
     this.makeChart();
   }
 
-	// componentDidUpdate() {
-  //   if (x!==this.state.city){
-  //   this.makeChart();
-  //   }
-  //   var x = this.state.city
-  // }
+  // need to improve this so that it doesnt randomly update
+	componentDidUpdate() {
+    var x;
+    if (x!==this.state.city){
+    this.makeChart();
+    }
+    var x = this.state.city
+  }
 
 
 	render() {
