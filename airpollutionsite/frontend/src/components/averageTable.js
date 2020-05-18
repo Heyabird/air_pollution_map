@@ -41,15 +41,15 @@ console.log("cityData.tableData[0]", props.cityData.tableData[0]);
     <>
       <div id="table-container" style={{display:"inline-block", float:"right"}}
       >
-        <TableContainer component={Paper}
-        style={{width:"400px", height:"150px", display:"inline-block", margin:"50px 30px 30px 30px"}}>
+        <TableContainer 
+        style={{width:"400px", height:"150px", display:"inline-block", margin:"50px 30px 30px 30px", backgroundColor:"#ffbbbb"}}>
           <Table className={classes.table} size="small" aria-label="a dense table">
             <TableHead>
               <TableRow>
                 <TableCell> </TableCell>
-                <TableCell color="primary" align="right">2018</TableCell>
-                <TableCell align="right">2019</TableCell>
-                <TableCell align="right">2020</TableCell>
+                <TableCell color="primary" align="left">2018</TableCell>
+                <TableCell align="left">2019</TableCell>
+                <TableCell align="left">2020</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -58,9 +58,9 @@ console.log("cityData.tableData[0]", props.cityData.tableData[0]);
                   <TableCell component="th" scope="row">
                     {row.name}
                   </TableCell>
-                  <TableCell align="right">{row.calories}</TableCell>
-                  <TableCell align="right">{row.fat}</TableCell>
-                  <TableCell align="right">{row.carbs}</TableCell>
+                  <TableCell align="left">{row.calories}</TableCell>
+                  <TableCell align="left">{row.fat}</TableCell>
+                  <TableCell align="left">{row.carbs}</TableCell>
                 </TableRow>
               ))}
             </TableBody>

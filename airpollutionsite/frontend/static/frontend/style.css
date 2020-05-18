@@ -4,7 +4,8 @@ body {
 	text-align: center !important;
 	font-family: "roboto light";
 	display: flex;
-	color: #bebebe;
+	color: #2e2e2e;
+	background-color: #ececec;
 }
 
 #pagetitle {
@@ -56,6 +57,7 @@ body {
 .chart-container {
 	width: 300px;
 	float: left;
+	/* color: #ffbbbb */
 }
 
 #chart {
@@ -82,4 +84,12 @@ body {
 	min-height: 300px;
 	margin: 20px;
 	display: inline-block;
+}
+
+
+@media only screen and (max-width: 660px) {
+
+  body {
+    color: red;
+	}
 }
