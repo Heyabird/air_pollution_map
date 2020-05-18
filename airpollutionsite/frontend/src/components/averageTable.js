@@ -39,16 +39,15 @@ console.log("cityData.tableData[0]", props.cityData.tableData[0]);
 
   return (
     <>
-      <h4>Average PM2.5 levels
-        in {props.city}
-      </h4>
-      <div id="table">
-        <TableContainer component={Paper}>
+      <div id="table-container" style={{display:"inline-block", float:"right"}}
+      >
+        <TableContainer component={Paper}
+        style={{width:"400px", height:"150px", display:"inline-block", margin:"50px 30px 30px 30px"}}>
           <Table className={classes.table} size="small" aria-label="a dense table">
             <TableHead>
               <TableRow>
                 <TableCell> </TableCell>
-                <TableCell align="right">2018</TableCell>
+                <TableCell color="primary" align="right">2018</TableCell>
                 <TableCell align="right">2019</TableCell>
                 <TableCell align="right">2020</TableCell>
               </TableRow>
@@ -67,6 +66,8 @@ console.log("cityData.tableData[0]", props.cityData.tableData[0]);
             </TableBody>
           </Table>
         </TableContainer>
+        <h4>Average PM2.5 levels
+      </h4>
       </div>
     </>
   );

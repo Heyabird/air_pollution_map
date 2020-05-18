@@ -1,8 +1,10 @@
 body {
-	padding: 60px 100px 60px 100px;
+	padding: 30px 100px 30px 100px;
 	margin: 30px auto;
-	text-align: center;
-  	font-family: "roboto light";
+	text-align: center !important;
+	font-family: "roboto light";
+	display: flex;
+	color: #bebebe;
 }
 
 #pagetitle {
@@ -17,13 +19,13 @@ body {
 /*** MAP ***/
 
 .mapContainer {
-	position: absolute;
-	top: 0;
+	/* position: absolute; */
+	/* top: 0;
 	right: 0;
 	left: 0;
-  bottom: 0;
+  bottom: 0; */
   height: 250px;
-  width: 800px;
+  width: 900px;
 }
 
 .mapboxgl-canvas{
@@ -44,15 +46,16 @@ body {
 	}
 
 
-/*** CHART ***/
+/*** CHART and TABLE ***/
 /* element.style {
   display: inline-block;
   width: 300px;
 } */
 
 /* doesnt work... */
-#chartcontainer {
+.chart-container {
 	width: 300px;
+	float: left;
 }
 
 #chart {
@@ -63,6 +66,10 @@ body {
 #graphs {
   display: inline-block;
   /* padding: 400px; */
+}
+
+.MuiTableCell-root {
+	color: red;
 }
 
 /*** TOOLS ***/

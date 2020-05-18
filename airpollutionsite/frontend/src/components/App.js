@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import mapboxgl from 'mapbox-gl';
 import TimeSeriesChart from './timeSeriesChart';
 import AverageTable from './averageTable';
-import Button from '@material-ui/core/Button';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiaGV5YWJpcmQiLCJhIjoiY2s5ZWl0c3M0MDJzdDNnbzE2dXB5bDRhdSJ9.bNbukgXKDz5ZbTc9gQ4-bQ';
 
@@ -31,7 +31,7 @@ class App extends React.Component {
       // ],  
       lng: -0,
       lat: 35,
-      zoom: 1.5,
+      zoom: 1,
       city: "__________",
     };
     // this.mapSetUp = this.mapSetUp.bind(this);
@@ -153,7 +153,7 @@ class App extends React.Component {
             cityData={cityData}
             />
         </div>
-        <Button variant="contained" color="primary" onClick={this.getCityData}>Test Button</Button>   
+        {/* <Button variant="contained" color="primary" onClick={this.getCityData}>Test Button</Button>    */}
       </>
     );
   }

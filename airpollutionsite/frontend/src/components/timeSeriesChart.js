@@ -89,15 +89,16 @@ class TimeSeriesChart extends React.Component {
 
     return (
 			<>
-        <h4>PM2.5 levels Over Time  !
-          {/* {this.props.city} */}
-          </h4>
         <div 
           class="chart-container" 
-          // style={{position: "relative", height: "100px", width: "600px"}}
+          style={{height: "300px", width: "400px", float: "left", margin:'30px'}}
           >
-          <canvas id="chart" max-width="50px" max-height="50px"></canvas>
+          <canvas id="chart" style={{maxWidth:"500px", maxHeight:"300px", display:"inline-block"}}></canvas>
+          <h4>PM2.5 levels Over Time
+          {/* {this.props.city} */}
+        </h4>
         </div>
+
 			</>		
 	)
 	}

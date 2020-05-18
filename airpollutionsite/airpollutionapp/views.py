@@ -36,8 +36,9 @@ def receive_data_la(req):
     response = requests.get(url)
     # save city name
     data = pd.read_csv(url, header=9, sep='\t|,', engine='python')
+    data['Year'] = data['% Year'].replace('%', ' ', regex=True)
     data = data.drop(data.columns[[1,2,3,5,6]], axis=1)
-    html = data.to_json()
+    html = data.to_html()
     return HttpResponse(html)
 
 def receive_data_sd(req):
@@ -47,7 +48,26 @@ def receive_data_sd(req):
     data = pd.read_csv(url, header=9, sep='\t|,')
     data = data.drop(data.columns[[1,2,3,5,6]], axis=1)
     html = data.to_html()
-    return HttpResponse(html)
+
+    # For Average Table
+    data2 = pd.read_csv("http://berkeleyearth.lbl.gov/air-quality/maps/cities/United_States_of_America/California/San_Diego.txt", 
+                   header=9, 
+                   sep='\t|,', 
+                   names=['Year', 'Month', 'Day', 'UTC Hour', 'PM2.5', 'PM10_mask', 'Retrospective'])
+    Year_2020 = data2['Year'] == 2020
+    March = data2['Month'] == 3
+    April = data2['Month'] == 4
+    May = data2['Month'] == 5
+
+    # Getting the AVG value
+    Year2020_March_AVG = data.loc[Year_2020 & March]['PM2.5'].mean()
+    Year2020_April_AVG = data.loc[Year_2020 & April]['PM2.5'].mean()
+    Year2020_May_AVG = data.loc[Year_2020 & May]['PM2.5'].mean()
+    print (Year2020_March_AVG)
+    print (Year2020_April_AVG)
+    print (Year2020_May_AVG)
+
+    return HttpResponse(Year2020_March_AVG, html)
 
 def receive_data_ny(req):
     print(req)

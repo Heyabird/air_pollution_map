@@ -9,6 +9,7 @@ To create this project, I used:
 * React
 * babel & Webpack
 * pip (https://pip.pypa.io/en/stable/installing/)
+* material ui & react bootstrap
 
 For you to use this project, you might have to run:
 * python manage.py makemigrations (create migrations)
@@ -21,7 +22,10 @@ To implement the tests, you should run:
 * coverage run --source='.' manage.py test (run coverage)
 * coverage html (generate report)
 
-(For more info, go to http://heyakwon.com/project3_notes)
+
+How to run this project:
+1. install python (python3 -m venv venv)
+2. set up virtual environment 
 
 ---
 
