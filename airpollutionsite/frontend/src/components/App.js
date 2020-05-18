@@ -14,16 +14,24 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      cityData: {},
-      mockAveragePM: [
-        ['March', 30, 40, 50],
-        ['April', 10, 20, 30],
-        ['May', 33, 22, 33]
-      ],  
+      cityData: {
+        city: 'Los Angeles',
+        chartData: [1,12,9,3,15,6,3,7,54,7,34,42,52,12,66,77,88,69,109],
+        tableData: [
+          ['March', 30, 44, 50],
+          ['April', 10, 20, 30],
+          ['May', 33, 22, 33]
+        ],
+      },
+      // mockAveragePM: [
+      //   ['March', 30, 40, 50],
+      //   ['April', 10, 20, 30],
+      //   ['May', 33, 22, 33]
+      // ],  
       lng: -0,
       lat: 35,
       zoom: 1.5,
-      city: "",
+      city: "__________",
     };
     // this.mapSetUp = this.mapSetUp.bind(this);
     this.test = this.test.bind(this);
@@ -81,29 +89,32 @@ class App extends React.Component {
         .addTo(map);
       this.updateCityData();
       this.setState({
-        city: feature.properties.place_name
+        city: feature.properties.place_name,
+        // cityData:
       });
     });
   }
 
   render() {   
     // destructuring states
-    const { city, cityData, mockAveragePM } = this.state;
+    const { city, cityData } = this.state;
     return (
       <>
         <div id="pagetitle">
-          <h2>Seeing the Pollution: PM 2.5 Levels by City</h2>
-          <h4><strong>{city}&nbsp;</strong></h4>
+          <h2>I want to see the PM2.5 Values in <span style={{color: "red"}}>{city}</span>.</h2>
+          <h4><strong>To choose a city, click on one of the red markers in the map</strong></h4>
         </div>
         <br/>
         {/* mapContainer ref specifies that map should be drawn to the HtML page in a new <div> element */}
         <div ref={el => this.mapContainer = el} className="mapContainer" /> 
         <br/>
         <div id="graphs">
-          <TimeSeriesChart city={city}/>
+          <TimeSeriesChart 
+            city={city}/>
           <AverageTable 
             city={city}
-            averagePM={mockAveragePM}
+            // averagePM={mockAveragePM}
+            cityData={cityData}
             />
         </div>
         <Button variant="contained" color="primary" onClick={this.test}>Test Button</Button>   
