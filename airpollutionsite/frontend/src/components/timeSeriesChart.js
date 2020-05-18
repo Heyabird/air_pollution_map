@@ -77,7 +77,10 @@ class TimeSeriesChart extends React.Component {
   }
 
 	componentDidUpdate() {
+    if (x!==this.state.city){
     this.makeChart();
+    }
+    var x = this.state.city
   }
 
 

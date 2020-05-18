@@ -52,21 +52,21 @@ class App extends React.Component {
   // testing if the frontend can receive air pollution data in the backend
   getCityData(city) {
     let cityName;
-    if(city === "Los Angeles") {
+    if(city === "Los Angeles, California, United States") {
       cityName = 'LA'
-    } else if (city === "") {
+    } else if (city === "San Diego, California, United States") {
       cityName = 'SD'
     } else if (city === "New York, New York, United States") {
       cityName = 'NY'
-    } else if (city === "") {
+    } else if (city === "San Francisco, California, United States") {
       cityName = 'SF'
-    } else if (city === "") {
+    } else if (city === "New Delhi, Delhi, India") {
       cityName = 'ND'
-    } else if (city === "") {
+    } else if (city === "Beijing Shi, China") {
       cityName = 'BJ'
-    } else if (city === "") {
+    } else if (city === "Houston, Texas, United States") {
       cityName = 'HO'
-    }else {
+    }else if (city==="Chicago, Illinois, United States") {
       cityName = 'CH'
     }
     console.log(cityName, "is chosen!")
@@ -136,7 +136,7 @@ class App extends React.Component {
       <>
         <div id="pagetitle">
           <h2>I want to see the PM2.5 Values in <span style={{color: "red"}}>{city}</span>.</h2>
-          <h4><strong>To choose a city, click on one of the red markers in the map</strong></h4>
+          <h4><strong>To choose a city, click on one of the red markers in the map.</strong></h4>
         </div>
         <br/>
         {/* mapContainer ref specifies that map should be drawn to the HtML page in a new <div> element */}
@@ -152,7 +152,7 @@ class App extends React.Component {
             cityData={cityData}
             />
         </div>
-        <Button variant="contained" color="primary" onClick={this.getCityData}>Test Button</Button>   
+        {/* <Button variant="contained" color="primary" onClick={this.getCityData}>Test Button</Button>    */}
       </>
     );
   }
