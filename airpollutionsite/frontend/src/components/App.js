@@ -16,9 +16,9 @@ class App extends React.Component {
     this.state = {
       cityData: {},
       mockAveragePM: [
-        [30, 40, 50],
-        [10, 20, 30],
-        [33, 22, 33]
+        ['March', 30, 40, 50],
+        ['April', 10, 20, 30],
+        ['May', 33, 22, 33]
       ],  
       lng: -0,
       lat: 35,

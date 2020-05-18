@@ -18,17 +18,23 @@ function createData(name, calories, fat, carbs) {
   return { name, calories, fat, carbs};
 }
 
-const rows = [
-  createData('March', 159, 6.0, 24),
-  createData('April', 237, 9.0, 37),
-  createData('May', 262, 16.0, 24),
-  // createData('Cupcake', 305, 3.7, 67, 4.3),
-  // createData('Gingerbread', 356, 16.0, 49, 3.9),
-];
+
 
 
 const averageTable = props => {
   const classes = useStyles();
+  const rows = [
+    createData(props.averagePM[0][0], props.averagePM[0][1], props.averagePM[0][2], props.averagePM[0][3]),
+    createData(props.averagePM[1][0], props.averagePM[1][1], props.averagePM[1][2], props.averagePM[1][3]),
+    createData(props.averagePM[2][0], props.averagePM[2][1], props.averagePM[2][2], props.averagePM[2][3]),
+    // createData('Cupcake', 305, 3.7, 67, 4.3),
+    // createData('Gingerbread', 356, 16.0, 49, 3.9),
+  ];
+
+console.log(props.averagePM);
+console.log(props.averagePM[0]);
+console.log(props.averagePM[0].join())
+
 
   return (
     <>
