@@ -7,7 +7,8 @@ class TimeSeriesChart extends React.Component {
   
 
   this.state = {
-     city: ""
+     city: "",
+     cityData: [12, 19, 3, 5],
    }
   this.cityNameOnly = this.cityNameOnly.bind(this);
   }
@@ -25,14 +26,20 @@ class TimeSeriesChart extends React.Component {
 
 	componentDidMount() {
     const ctx = document.getElementById('chart').getContext('2d');
-    const xLabels = [2018, 2019, 2020];
+    // make a list of numbers from 2004 to 2020
+    var list = [0];
+    for (var i = 2004; i <= 2020; i++) {
+        list.push(i);
+    }
+    console.log(list);
+    const xLabels = list;
     const myChart = new Chart(ctx, {
         type: 'line',
         data: {
             labels: xLabels,
             datasets: [{
                 label: 'pm2.5',
-                data: [12, 19, 3, 5, 2, 3],
+                data: this.state.cityData,
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
@@ -66,11 +73,13 @@ class TimeSeriesChart extends React.Component {
 
 
 	render() {
-    console.log(this.state.city)
+    console.log(this.state.city);
 
     return (
 			<>
-        <h4>PM2.5 levels in {this.props.city}</h4>
+        <h4>PM2.5 levels Over Time  !
+          {/* {this.props.city} */}
+          </h4>
         <canvas id="chart" max-width="50px" max-height="50px"></canvas>
 			</>		
 	)

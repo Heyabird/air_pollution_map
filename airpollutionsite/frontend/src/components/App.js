@@ -14,14 +14,20 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-    lng: -0,
-    lat: 35,
-    zoom: 1.5,
-    city: "",
+      cityData: {},
+      mockAveragePM: [
+        [30, 40, 50],
+        [10, 20, 30],
+        [33, 22, 33]
+      ],  
+      lng: -0,
+      lat: 35,
+      zoom: 1.5,
+      city: "",
     };
     // this.mapSetUp = this.mapSetUp.bind(this);
     this.test = this.test.bind(this);
-    this.updateChart = this.updateChart.bind(this);
+    this.updateCityData = this.updateCityData.bind(this);
     }
   
   // mapSetUp(){
@@ -46,8 +52,9 @@ class App extends React.Component {
     })
   }
 
-  updateChart() {
-    console.log("updating chart!");
+  updateCityData () {
+    console.log("updating city data!");
+    this.setState({cityData: {city: "updated", data: "updated"}})
   }
   
   // Set map and pop up whenever the page loads
@@ -72,7 +79,7 @@ class App extends React.Component {
         .setLngLat(feature.geometry.coordinates)
         .setHTML('<h3>' + feature.properties.place_name + '</h3>')
         .addTo(map);
-      this.updateChart();
+      this.updateCityData();
       this.setState({
         city: feature.properties.place_name
       });
@@ -80,19 +87,24 @@ class App extends React.Component {
   }
 
   render() {   
+    // destructuring states
+    const { city, cityData, mockAveragePM } = this.state;
     return (
       <>
         <div id="pagetitle">
-          <h2>Seeing the Pollution: Air Pollution Levels in Major Cities</h2>
-          <h4>City Selected: <strong>{this.state.city}</strong></h4>
+          <h2>Seeing the Pollution: PM 2.5 Levels by City</h2>
+          <h4><strong>{city}&nbsp;</strong></h4>
         </div>
         <br/>
         {/* mapContainer ref specifies that map should be drawn to the HtML page in a new <div> element */}
         <div ref={el => this.mapContainer = el} className="mapContainer" /> 
         <br/>
         <div id="graphs">
-          <TimeSeriesChart city={this.state.city}/>
-          <AverageTable/>
+          <TimeSeriesChart city={city}/>
+          <AverageTable 
+            city={city}
+            averagePM={mockAveragePM}
+            />
         </div>
         <Button variant="contained" color="primary" onClick={this.test}>Test Button</Button>   
       </>
