@@ -136,7 +136,7 @@ class App extends React.Component {
     return (
       <>
         <div id="pagetitle">
-          <h2>I want to see the PM2.5 Values in <span style={{color: "red"}}>{city}</span>.</h2>
+          <h2>I want to see the <a href="https://www.health.ny.gov/environmental/indoors/air/pmq_a.htm" target="_blank">PM2.5 Values</a> in <span style={{color: "red"}}>{city}</span>.</h2>
           <h4><strong>To choose a city, click on one of the red markers in the map.</strong></h4>
         </div>
         <br/>

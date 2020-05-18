@@ -1,5 +1,5 @@
 body {
-	padding: 30px 100px 30px 100px;
+	padding: 45px 100px 30px 100px;
 	margin: 30px auto;
 	text-align: center !important;
 	font-family: "roboto light";
@@ -78,6 +78,7 @@ body {
 #table-container{
 	width: 540px;
 	margin: 20px;
+	padding-top: 20px;
 	/* height: 100px; */
 }
 
@@ -93,7 +94,22 @@ body {
 	display: inline-block;
 }
 
+/* LINKS */
+a { 
+	color: black; 
+	font-weight: normal;
+}
 
+a:visited {
+	color: black;
+}
+
+a:hover{
+	color: red;
+}
+
+
+/* ADD MEDIA QUERIES BELOW */
 @media only screen and (max-width: 660px) {
 
   body {
