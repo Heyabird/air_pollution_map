@@ -23,6 +23,7 @@ class App extends React.Component {
           ['May', 33, 22, 33]
         ],
       },
+      externaldata: "",
       // mockAveragePM: [
       //   ['March', 30, 40, 50],
       //   ['April', 10, 20, 30],
@@ -34,7 +35,7 @@ class App extends React.Component {
       city: "__________",
     };
     // this.mapSetUp = this.mapSetUp.bind(this);
-    this.test = this.test.bind(this);
+    this.getCityData = this.getCityData.bind(this);
     this.updateCityData = this.updateCityData.bind(this);
     }
   
@@ -49,11 +50,31 @@ class App extends React.Component {
 
 
   // testing if the frontend can receive air pollution data in the backend
-  test() {
-    var uri = 'http://localhost:8000/retrieveData'
+  getCityData(city) {
+    let cityName;
+    if(city === "Los Angeles") {
+      cityName = 'LA'
+    } else if (city === "") {
+      cityName = 'SD'
+    } else if (city === "New York, New York, United States") {
+      cityName = 'NY'
+    } else if (city === "") {
+      cityName = 'SF'
+    } else if (city === "") {
+      cityName = 'ND'
+    } else if (city === "") {
+      cityName = 'BJ'
+    } else if (city === "") {
+      cityName = 'HO'
+    }else {
+      cityName = 'CH'
+    }
+    console.log(cityName, "is chosen!")
+    var uri = `http://localhost:8000/retrieveData${cityName}`
     axios.get(uri)
     .then(response => {
       console.log("retrieving data: ", response.data)
+      this.setState({externalData: response.data})
     })
     .catch(function(err){
       console.log(err)
@@ -97,7 +118,10 @@ class App extends React.Component {
         .setLngLat(feature.geometry.coordinates)
         .setHTML('<h3>' + feature.properties.place_name + '</h3>')
         .addTo(map);
+      console.log("testing")
+      this.getCityData(feature.properties.place_name);
       this.updateCityData();
+      // this.test(feature.properties.place_name);
       this.setState({
         city: feature.properties.place_name,
         // cityData:
@@ -128,7 +152,7 @@ class App extends React.Component {
             cityData={cityData}
             />
         </div>
-        <Button variant="contained" color="primary" onClick={this.test}>Test Button</Button>   
+        <Button variant="contained" color="primary" onClick={this.getCityData}>Test Button</Button>   
       </>
     );
   }

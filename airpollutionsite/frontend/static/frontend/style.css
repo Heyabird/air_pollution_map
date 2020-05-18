@@ -10,6 +10,10 @@ body {
   text-align: center;
 }
 
+#app {
+	margin: auto;
+}
+
 /*** MAP ***/
 
 .mapContainer {

@@ -23,7 +23,15 @@ from django.conf import settings
 urlpatterns = [
     path('', include('frontend.urls')),
     path('testing/', include('airpollutionapp.urls')),
-    path('retrieveData/', include('airpollutionapp.urls')),
+    path('retrieveDataLA/', include('airpollutionapp.urls')),
+    path('retrieveDataSD/', include('airpollutionapp.urls')),
+    path('retrieveDataNY/', include('airpollutionapp.urls')),
+    path('retrieveDataSF/', include('airpollutionapp.urls')),
+    path('retrieveDataND/', include('airpollutionapp.urls')),
+    path('retrieveDataBJ/', include('airpollutionapp.urls')),    
+    path('retrieveDataHO/', include('airpollutionapp.urls')),
+    path('retrieveDataCH/', include('airpollutionapp.urls')),
+
     # password for admin is 'djangoisfun1'
     path('admin/', admin.site.urls),
 ]
