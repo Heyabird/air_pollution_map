@@ -2,8 +2,8 @@ from django.http import HttpResponse
 from django.template import loader
 import requests
 from .models import Question
-# Pandas
-import pandas as pd
+# import Pandas
+import pandas as pd 
 import numpy as np 
 
 

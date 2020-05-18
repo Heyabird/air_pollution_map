@@ -65,7 +65,7 @@ class App extends React.Component {
     this.setState({
       cityData: {
         city: this.state.city,
-        chartData: [3,32,9,4,15,6,3,7,54,7,34,45,22,12,46,77,38,49,109],
+        chartData: [3,32,9,4,15,6,3,7,54,7,34,45,22,2,3,2,1,1,2],
         tableData: [
           ['March', 10, 20, 10],
           ['April', 10, 20, 10],

@@ -11,6 +11,7 @@ class TimeSeriesChart extends React.Component {
      cityData: [12, 19, 3, 5],
    }
   this.cityNameOnly = this.cityNameOnly.bind(this);
+  this.makeChart = this.makeChart.bind(this);
   }
 
   cityNameOnly(city) {
@@ -20,11 +21,11 @@ class TimeSeriesChart extends React.Component {
     console.log(this.state.city)
   }
 
-  componentDidUpdate() {
-    // this.cityNameOnly(this.props.city);
-  }
+  // componentDidUpdate() {
+  //   // this.cityNameOnly(this.props.city);
+  // }
 
-	componentDidMount() {
+  makeChart(){
     const ctx = document.getElementById('chart').getContext('2d');
     // make a list of numbers from 2004 to 2020
     var list = [0];
@@ -69,6 +70,14 @@ class TimeSeriesChart extends React.Component {
             }
         }
     });
+  }
+
+  componentDidMount() {
+    this.makeChart();
+  }
+  
+	componentDidUpdate() {
+    this.makeChart();
   }
 
 
