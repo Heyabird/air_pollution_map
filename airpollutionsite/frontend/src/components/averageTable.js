@@ -23,7 +23,7 @@ function createData(name, calories, fat, carbs) {
 
 const averageTable = props => {
   const classes = useStyles();
-  const averagePM = props.cityData.tableData
+  const averagePM = props.cityData.tableData;
   const rows = [
     createData(averagePM[0][0], averagePM[0][1], averagePM[0][2], averagePM[0][3]),
     createData(averagePM[1][0], averagePM[1][1], averagePM[1][2], averagePM[1][3]),

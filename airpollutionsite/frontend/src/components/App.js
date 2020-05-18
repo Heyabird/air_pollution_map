@@ -62,7 +62,17 @@ class App extends React.Component {
 
   updateCityData () {
     console.log("updating city data!");
-    this.setState({cityData: {city: "updated", data: "updated"}})
+    this.setState({
+      cityData: {
+        city: this.state.city,
+        chartData: [3,32,9,4,15,6,3,7,54,7,34,45,22,12,46,77,38,49,109],
+        tableData: [
+          ['March', 10, 20, 10],
+          ['April', 10, 20, 10],
+          ['May', 33, 22, 43]
+        ],
+      },
+    })
   }
   
   // Set map and pop up whenever the page loads
@@ -110,7 +120,8 @@ class App extends React.Component {
         <br/>
         <div id="graphs">
           <TimeSeriesChart 
-            city={city}/>
+            city={city}
+            cityData={cityData}/>
           <AverageTable 
             city={city}
             // averagePM={mockAveragePM}
