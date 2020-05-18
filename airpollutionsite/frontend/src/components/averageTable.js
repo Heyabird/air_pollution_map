@@ -42,7 +42,7 @@ console.log("cityData.tableData[0]", props.cityData.tableData[0]);
       <div id="table-container" style={{display:"inline-block", float:"right"}}
       >
         <TableContainer 
-        style={{width:"400px", height:"150px", display:"inline-block", margin:"50px 30px 30px 30px", backgroundColor:"#ffbbbb"}}>
+        style={{width:"400px", height:"150px", display:"inline-block", margin:"50px 30px 30px 30px", backgroundColor:"#ffcbcb", border: "1px solid #ff9090"}}>
           <Table className={classes.table} size="small" aria-label="a dense table">
             <TableHead>
               <TableRow>
