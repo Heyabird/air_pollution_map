@@ -91,7 +91,7 @@ class TimeSeriesChart extends React.Component {
 			<>
         <div 
           class="chart-container" 
-          style={{height: "300px", width: "400px", float: "left", margin:'30px'}}
+          style={{height: "400px", width: "300px", float: "left", margin:'20px'}}
           >
           <canvas id="chart" style={{maxWidth:"500px", maxHeight:"300px", display:"inline-block"}}></canvas>
           <h4>PM2.5 levels Over Time

@@ -26,7 +26,8 @@ body {
 	left: 0;
   bottom: 0; */
   height: 250px;
-  width: 900px;
+	width: 900px;
+	margin: auto;
 }
 
 .mapboxgl-canvas{
@@ -74,6 +75,12 @@ body {
 	color: red;
 }
 
+#table-container{
+	width: 540px;
+	margin: 20px;
+	/* height: 100px; */
+}
+
 /*** TOOLS ***/
 
 #box {
@@ -90,6 +97,6 @@ body {
 @media only screen and (max-width: 660px) {
 
   body {
-    color: red;
+    color: #fcd9df;
 	}
 }
