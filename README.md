@@ -18,8 +18,8 @@ For you to use this project, you might have to run:
 * npm run dev (to run webpack so the frontend will load)
 
 To implement the tests, you should run:
-* yarn test (runs Jest)
-* rsepc spec (runs Rspec)
+* coverage run --source='.' manage.py test (run coverage)
+* coverage html (generate report)
 
 (For more info, go to http://heyakwon.com/project3_notes)
 

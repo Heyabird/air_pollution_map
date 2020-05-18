@@ -75,7 +75,7 @@ class TimeSeriesChart extends React.Component {
   componentDidMount() {
     this.makeChart();
   }
-  
+
 	componentDidUpdate() {
     this.makeChart();
   }
@@ -89,7 +89,12 @@ class TimeSeriesChart extends React.Component {
         <h4>PM2.5 levels Over Time  !
           {/* {this.props.city} */}
           </h4>
-        <canvas id="chart" max-width="50px" max-height="50px"></canvas>
+        <div 
+          class="chart-container" 
+          // style={{position: "relative", height: "100px", width: "600px"}}
+          >
+          <canvas id="chart" max-width="50px" max-height="50px"></canvas>
+        </div>
 			</>		
 	)
 	}

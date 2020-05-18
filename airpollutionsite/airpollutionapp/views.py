@@ -21,8 +21,9 @@ def detail(request, question_id):
 def receive_data(req):
     url = 'http://berkeleyearth.lbl.gov/air-quality/maps/cities/United_States_of_America/California/Los_Angeles.txt' 
     response = requests.get(url)
-    # print(response)
-    data = pd.read_csv(response.text, comment="%")
+    # crashes below
+    data = pd.read_csv(url, header=9, sep='\t|,')
     data.drop(data.columns[[1,2,3,5,6]], axis=1)
     # newdata = data[:10]
-    return HttpResponse(str(newdata))
+    # print(data)
+    return HttpResponse(data)

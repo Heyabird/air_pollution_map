@@ -1,6 +1,6 @@
 body {
-	padding: 30px 100px 30px 100px;
-	margin: auto;
+	padding: 60px 100px 60px 100px;
+	margin: 30px auto;
 	text-align: center;
   	font-family: "roboto light";
 }
@@ -19,6 +19,7 @@ body {
 	left: 0;
   bottom: 0;
   height: 250px;
+  width: 800px;
 }
 
 .mapboxgl-canvas{
@@ -44,6 +45,11 @@ body {
   display: inline-block;
   width: 300px;
 } */
+
+/* doesnt work... */
+#chartcontainer {
+	width: 300px;
+}
 
 #chart {
 	width: 300px;
