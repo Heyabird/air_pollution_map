@@ -70,6 +70,7 @@ class App extends React.Component {
       cityName = 'CH'
     }
     console.log(cityName, "is chosen!")
+    // var uri = `http://localhost:8000/retrieveData?city=${cityName}`
     var uri = `http://localhost:8000/retrieveData${cityName}`
     axios.get(uri)
     .then(response => {
@@ -152,7 +153,7 @@ class App extends React.Component {
             cityData={cityData}
             />
         </div>
-        {/* <Button variant="contained" color="primary" onClick={this.getCityData}>Test Button</Button>    */}
+        <Button variant="contained" color="primary" onClick={this.getCityData}>Test Button</Button>   
       </>
     );
   }
