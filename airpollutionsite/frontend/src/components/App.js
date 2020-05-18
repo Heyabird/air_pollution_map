@@ -14,6 +14,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      // this is a dummy data... eventually want to turn the actual external data in to this particular object format so that it is easy to pull into charts
       cityData: {
         city: 'Los Angeles',
         chartData: [1,12,9,3,15,6,3,7,54,7,34,42,52,12,66,77,88,69,109],
@@ -33,7 +34,7 @@ class App extends React.Component {
       lng: -0,
       lat: 35,
       zoom: 1,
-      city: "__________",
+      city: "_________________",
     };
     // this.mapSetUp = this.mapSetUp.bind(this);
     this.getCityData = this.getCityData.bind(this);
@@ -72,6 +73,7 @@ class App extends React.Component {
       cityName = 'CH'
     }
     console.log(cityName, "is chosen!")
+    // trying to make it so that we just have to use 1 retreivedata function in views.py...
     // var uri = `http://localhost:8000/retrieveData?city=${cityName}`
     var uri = `http://localhost:8000/retrieveData${cityName}`
     axios.get(uri)

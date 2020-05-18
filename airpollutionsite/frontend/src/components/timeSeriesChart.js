@@ -8,21 +8,23 @@ class TimeSeriesChart extends React.Component {
 
   this.state = {
      city: "",
+    //  dummydata
      cityData: [12, 19, 3, 5],
    }
   this.cityNameOnly = this.cityNameOnly.bind(this);
   this.makeChart = this.makeChart.bind(this);
   }
 
+  // function to get only the city name
   cityNameOnly(city) {
     let arr = this.props.city.split(", ");
     this.setState({city: arr[0]})
     console.log(arr)
-    console.log(this.state.city)
-  }
-
-
+    console.log(this.state.city)}
+  
   makeChart(){
+    // got the code below from chart js documentation
+    // eventually need to convert to a more complex type of graph
     const ctx = document.getElementById('chart').getContext('2d');
     // make a list of numbers from 2004 to 2020
     var list = [0];
@@ -69,6 +71,7 @@ class TimeSeriesChart extends React.Component {
     });
   }
 
+  // when the page loads, chart is made
   componentDidMount() {
     this.makeChart();
   }
@@ -88,10 +91,12 @@ class TimeSeriesChart extends React.Component {
 
     return (
 			<>
+      {/* hard to style canvas, so make a container and style that */}
         <div 
           class="chart-container" 
           style={{height: "400px", width: "300px", float: "left", margin:'20px'}}
           >
+          {/* canvas is the chart */}
           <canvas id="chart" style={{maxWidth:"500px", maxHeight:"300px", display:"inline-block"}}></canvas>
           <h4>PM2.5 levels Over Time
           {/* {this.props.city} */}
